@@ -1,0 +1,12 @@
+box: takebayashi/docker-swiftbuild
+build:
+  steps:
+    - script:
+      name: fetch-deps
+      code: |
+        ./utils/update-checkout --clone
+    - script:
+      name: build
+      code: |
+        cd .. && mv source swift && cd swift
+        utils/build-script -t
